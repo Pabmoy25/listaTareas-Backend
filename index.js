@@ -4,6 +4,7 @@ import cors from 'cors'
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import tareasRouter from './src/routes/tareas.routes.js';
 
 const app = express();
 
@@ -24,8 +25,5 @@ app.use(express.static(path.join(__dirname, '/public')))
 
 
 
-app.get('/nuevo', (req, res) =>{
-    console.log('porcesando una solicitud get');
-    res.send('respueta del backend');
-})
+app.use('/', tareasRouter)
 
